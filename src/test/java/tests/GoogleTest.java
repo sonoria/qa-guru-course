@@ -19,4 +19,18 @@ class GoogleTest {
         // Проверить, что Selenide появился в результатах поиска
         $("html").shouldHave(text("ru.selenide.org"));
     }
+
+    @Test
+    void selenideSearchInYandex() {
+        // Открыть google
+        open("https://ya.ru");
+
+        // Ввести Selenide в поиск
+        $(byName("text")).setValue("qa guru").pressEnter();
+
+        // Проверить, что Selenide появился в результатах поиска
+        $("html").shouldHave(text("qa.guru"));
+
+    }
 }
+
